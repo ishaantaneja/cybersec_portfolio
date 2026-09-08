@@ -1,0 +1,2 @@
+Drop your resume PDF here as: public/resume.pdf
+Served at: https://ishaantaneja.github.io/cybersec_portfolio/resume.pdf
