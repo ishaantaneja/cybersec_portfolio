@@ -8,7 +8,7 @@ export function Footer() {
           © {new Date().getFullYear()} {profile.name}
         </p>
         <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted/80">
-          CompTIA Security+ · SOC Analyst L1 · Dubai
+          CompTIA Security+ · SOC Analyst · Dubai
         </p>
       </div>
     </footer>

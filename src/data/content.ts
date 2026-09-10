@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Ishaan Taneja',
-  title: 'CompTIA Security+ Certified | SOC Analyst L1',
-  intent: 'Open to SOC Analyst L1 roles in Dubai',
+  title: 'SOC Analyst',
+  subtitle: 'Ex-Software Engineer at Bank of America',
   hook: 'A builder who learned how systems are made, then chose to protect them.',
   links: {
     linkedin: 'https://www.linkedin.com/in/ishaantaneja',
@@ -30,7 +30,7 @@ export const story = [
   {
     phase: '04',
     title: 'Trajectory',
-    body: 'Near-term: SOC Analyst L1. Long-term: red team and security research — learn the attacker by watching first.',
+    body: 'Near-term: SOC Analyst. Long-term: red team and security research — learn the attacker by watching first.',
   },
 ]
 
@@ -167,10 +167,25 @@ export const skillGroups = [
   },
 ]
 
-export const certs = [
+export type Cert = {
+  name: string
+  detail: string
+  badge?: string
+  href?: string
+  featured?: boolean
+}
+
+export const certs: Cert[] = [
   {
     name: 'CompTIA Security+',
     detail: 'Verification: 5f0359e88964428cab9d5d0fc7e8e3fc',
+    badge: 'certs/comptia-security-plus-badge.png',
+    featured: true,
+  },
+  {
+    name: 'Forage Cybersecurity Job Simulation',
+    detail: 'Mastercard · Completed Mar 2026',
+    href: 'certs/forage-cybersecurity-job-simulation.pdf',
   },
   {
     name: 'Programming with DSA',
@@ -192,8 +207,14 @@ export const education = {
   dates: 'Aug 2018 – May 2022',
 }
 
+export const leadership = {
+  title: 'Head of PR — Manipal Information Security Team',
+  detail: 'MIT Manipal · AY 2020-21',
+  image: 'certs/mist-head-of-pr-certificate.png',
+}
+
 export const volunteering = [
-  'Head of PR — Manipal Information Security Team',
+  'Head of PR — Manipal Information Security Team (AY 2020-21)',
   'Google Cloud Skills Boost labs & badges',
 ]
 
@@ -205,3 +226,10 @@ export const nav = [
   { id: 'certs', label: 'Certs' },
   { id: 'contact', label: 'Contact' },
 ]
+
+/** Resolve a public asset path with Vite base (GitHub Pages project site). */
+export function assetUrl(path: string) {
+  const base = import.meta.env.BASE_URL
+  const clean = path.replace(/^\//, '')
+  return `${base}${clean}`
+}
