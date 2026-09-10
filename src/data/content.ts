@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Ishaan Taneja',
   title: 'SOC Analyst',
-  subtitle: 'Ex-Software Engineer at Bank of America',
+  subtitle: 'CompTIA Security+ Certified | Ex-Software Engineer at Bank of America',
   hook: 'A builder who learned how systems are made, then chose to protect them.',
   links: {
     linkedin: 'https://www.linkedin.com/in/ishaantaneja',
