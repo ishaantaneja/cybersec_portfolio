@@ -1,5 +1,6 @@
 import { projects } from '../data/content'
 import { Reveal } from './Reveal'
+import { TiltCard } from './TiltCard'
 
 export function Projects() {
   return (
@@ -15,26 +16,28 @@ export function Projects() {
           </p>
         </Reveal>
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-4 md:grid-cols-3 [perspective:1200px]">
           {projects.map((project, i) => (
             <Reveal as="article" key={project.title} delayMs={i * 90}>
-              <div className="card-lift flex h-full flex-col rounded-xl border border-line/80 bg-panel/70 p-5 glow-border transition hover:border-cyan/30">
-                <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
-                  {project.date}
-                </p>
-                <h3 className="mt-3 text-base font-medium leading-snug text-white">{project.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{project.summary}</p>
-                <div className="mt-5 flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded border border-line bg-ink/80 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-cyan/90"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+              <TiltCard className="h-full" maxTilt={8}>
+                <div className="flex h-full flex-col rounded-xl border border-line/80 bg-panel/70 p-5 glow-border transition-colors hover:border-cyan/30">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted">
+                    {project.date}
+                  </p>
+                  <h3 className="mt-3 text-base font-medium leading-snug text-white">{project.title}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{project.summary}</p>
+                  <div className="mt-5 flex flex-wrap gap-1.5">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded border border-line bg-ink/80 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-cyan/90"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </TiltCard>
             </Reveal>
           ))}
         </div>

@@ -1,14 +1,17 @@
 import { ArrowUpRight, Mail, Terminal } from 'lucide-react'
 import { assetUrl, profile } from '../data/content'
+import { HeroBackdrop } from './HeroBackdrop'
 import { LinkedInIcon } from './LinkedInIcon'
+import { TiltCard } from './TiltCard'
 
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden section-pad pt-28 md:pt-36">
+      <HeroBackdrop />
       <div className="pointer-events-none absolute -right-24 top-24 h-72 w-72 rounded-full bg-cyan/10 blur-3xl" />
       <div className="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-full bg-cyan-dim/10 blur-3xl" />
 
-      <div className="relative mx-auto max-w-6xl">
+      <div className="relative z-10 mx-auto max-w-6xl">
         <h1 className="hero-enter max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl text-balance">
           {profile.name}
         </h1>
@@ -69,13 +72,12 @@ export function Hero() {
             { k: 'Base', v: 'Dubai · Remote-ready' },
             { k: 'Cert', v: 'CompTIA Security+' },
           ].map((item) => (
-            <div
-              key={item.k}
-              className="card-lift rounded-lg border border-line/80 bg-panel/70 px-4 py-3 glow-border"
-            >
-              <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted">{item.k}</p>
-              <p className="mt-1 text-sm text-white">{item.v}</p>
-            </div>
+            <TiltCard key={item.k} maxTilt={5}>
+              <div className="rounded-lg border border-line/80 bg-panel/70 px-4 py-3 glow-border">
+                <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted">{item.k}</p>
+                <p className="mt-1 text-sm text-white">{item.v}</p>
+              </div>
+            </TiltCard>
           ))}
         </div>
       </div>
