@@ -6,7 +6,7 @@ type TiltCardProps = {
   maxTilt?: number
 }
 
-export function TiltCard({ children, className = '', maxTilt = 7 }: TiltCardProps) {
+export function TiltCard({ children, className = '', maxTilt = 10 }: TiltCardProps) {
   const ref = useRef<HTMLDivElement>(null)
   const raf = useRef<number | null>(null)
   const [enabled, setEnabled] = useState(false)
@@ -37,7 +37,7 @@ export function TiltCard({ children, className = '', maxTilt = 7 }: TiltCardProp
 
       if (raf.current) cancelAnimationFrame(raf.current)
       raf.current = requestAnimationFrame(() => {
-        el.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-3px) scale(1.01)`
+        el.style.transform = `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-6px) scale(1.025)`
       })
     },
     [enabled, maxTilt],

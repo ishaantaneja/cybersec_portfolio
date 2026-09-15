@@ -9,28 +9,24 @@ export function HeroBackdrop() {
 
   useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const narrow = window.matchMedia('(max-width: 767px)').matches
     const saveData =
       'connection' in navigator &&
       Boolean((navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData)
 
+    // Only skip WebGL for accessibility / explicit data-saver — still show CSS fallback layers
     if (reduced || saveData) {
       setShow(false)
       return
     }
 
-    // Mobile: skip WebGL entirely for battery / LCP
-    if (narrow) {
-      setShow(false)
-      return
-    }
-
+    const narrow = window.matchMedia('(max-width: 767px)').matches
     const mid = window.matchMedia('(max-width: 1023px)').matches
-    setSimplified(mid)
+    // Mobile + tablet: simplified scene (1 orb + rings), lower dpr — still visible
+    setSimplified(narrow || mid)
     setShow(true)
 
     // Defer mount slightly so LCP text paints first
-    const id = window.setTimeout(() => setReady(true), 120)
+    const id = window.setTimeout(() => setReady(true), 100)
     return () => window.clearTimeout(id)
   }, [])
 

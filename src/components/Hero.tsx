@@ -7,11 +7,21 @@ import { TiltCard } from './TiltCard'
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden section-pad pt-28 md:pt-36">
-      <HeroBackdrop />
-      <div className="pointer-events-none absolute -right-24 top-24 h-72 w-72 rounded-full bg-cyan/10 blur-3xl" />
-      <div className="pointer-events-none absolute -left-16 bottom-0 h-56 w-56 rounded-full bg-cyan-dim/10 blur-3xl" />
+      {/* Always-visible CSS 3D depth (works even if WebGL is skipped) */}
+      <div className="hero-css-stage pointer-events-none absolute inset-0 -z-0" aria-hidden="true">
+        <div className="hero-css-orb hero-css-orb-a" />
+        <div className="hero-css-orb hero-css-orb-b" />
+        <div className="hero-css-ring hero-css-ring-a" />
+        <div className="hero-css-ring hero-css-ring-b" />
+        <div className="hero-css-grid" />
+      </div>
 
-      <div className="relative z-10 mx-auto max-w-6xl">
+      <HeroBackdrop />
+
+      <div className="pointer-events-none absolute -right-16 top-16 h-80 w-80 rounded-full bg-cyan/20 blur-3xl" />
+      <div className="pointer-events-none absolute -left-12 bottom-0 h-64 w-64 rounded-full bg-cyan-dim/15 blur-3xl" />
+
+      <div className="relative z-10 mx-auto max-w-6xl pr-0 md:pr-[min(42%,28rem)]">
         <h1 className="hero-enter max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl text-balance">
           {profile.name}
         </h1>
@@ -72,7 +82,7 @@ export function Hero() {
             { k: 'Base', v: 'Dubai · Remote-ready' },
             { k: 'Cert', v: 'CompTIA Security+' },
           ].map((item) => (
-            <TiltCard key={item.k} maxTilt={5}>
+            <TiltCard key={item.k} maxTilt={12}>
               <div className="rounded-lg border border-line/80 bg-panel/70 px-4 py-3 glow-border">
                 <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-muted">{item.k}</p>
                 <p className="mt-1 text-sm text-white">{item.v}</p>
