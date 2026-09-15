@@ -1,27 +1,18 @@
 import { ArrowUpRight, Mail, Terminal } from 'lucide-react'
 import { assetUrl, profile } from '../data/content'
-import { HeroBackdrop } from './HeroBackdrop'
 import { LinkedInIcon } from './LinkedInIcon'
 import { TiltCard } from './TiltCard'
 
 export function Hero() {
   return (
     <section id="top" className="relative overflow-hidden section-pad pt-28 md:pt-36">
-      {/* Always-visible CSS 3D depth (works even if WebGL is skipped) */}
-      <div className="hero-css-stage pointer-events-none absolute inset-0 -z-0" aria-hidden="true">
-        <div className="hero-css-orb hero-css-orb-a" />
-        <div className="hero-css-orb hero-css-orb-b" />
-        <div className="hero-css-blob hero-css-blob-a" />
-        <div className="hero-css-blob hero-css-blob-b" />
-        <div className="hero-css-blob hero-css-blob-c" />
+      {/* Very soft ambient wash — stays behind copy, never competes */}
+      <div className="hero-ambient pointer-events-none absolute inset-0 -z-0" aria-hidden="true">
+        <div className="hero-ambient-bloom hero-ambient-bloom-a" />
+        <div className="hero-ambient-bloom hero-ambient-bloom-b" />
       </div>
 
-      <HeroBackdrop />
-
-      <div className="pointer-events-none absolute -right-16 top-16 h-80 w-80 rounded-full bg-white/10 blur-3xl" />
-      <div className="pointer-events-none absolute -left-12 bottom-0 h-64 w-64 rounded-full bg-cyan/10 blur-3xl" />
-
-      <div className="relative z-10 mx-auto max-w-6xl pr-0 md:pr-[min(42%,28rem)]">
+      <div className="relative z-10 mx-auto max-w-6xl">
         <h1 className="hero-enter max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl text-balance">
           {profile.name}
         </h1>
