@@ -11,15 +11,15 @@ export function Hero() {
       <div className="hero-css-stage pointer-events-none absolute inset-0 -z-0" aria-hidden="true">
         <div className="hero-css-orb hero-css-orb-a" />
         <div className="hero-css-orb hero-css-orb-b" />
-        <div className="hero-css-ring hero-css-ring-a" />
-        <div className="hero-css-ring hero-css-ring-b" />
-        <div className="hero-css-grid" />
+        <div className="hero-css-blob hero-css-blob-a" />
+        <div className="hero-css-blob hero-css-blob-b" />
+        <div className="hero-css-blob hero-css-blob-c" />
       </div>
 
       <HeroBackdrop />
 
-      <div className="pointer-events-none absolute -right-16 top-16 h-80 w-80 rounded-full bg-cyan/20 blur-3xl" />
-      <div className="pointer-events-none absolute -left-12 bottom-0 h-64 w-64 rounded-full bg-cyan-dim/15 blur-3xl" />
+      <div className="pointer-events-none absolute -right-16 top-16 h-80 w-80 rounded-full bg-white/10 blur-3xl" />
+      <div className="pointer-events-none absolute -left-12 bottom-0 h-64 w-64 rounded-full bg-cyan/10 blur-3xl" />
 
       <div className="relative z-10 mx-auto max-w-6xl pr-0 md:pr-[min(42%,28rem)]">
         <h1 className="hero-enter max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl text-balance">

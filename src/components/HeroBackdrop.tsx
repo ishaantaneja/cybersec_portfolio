@@ -21,7 +21,7 @@ export function HeroBackdrop() {
 
     const narrow = window.matchMedia('(max-width: 767px)').matches
     const mid = window.matchMedia('(max-width: 1023px)').matches
-    // Mobile + tablet: simplified scene (1 orb + rings), lower dpr — still visible
+    // Mobile + tablet: simplified scene (1–2 soft spheres), lower dpr — still visible
     setSimplified(narrow || mid)
     setShow(true)
 
